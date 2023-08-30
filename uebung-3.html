@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Grid Übung</title>
+    <style>
+        h1{
+            text-decoration-line: underline;
+            text-shadow: 1px 1px 5px whitesmoke;
+            font-family:cursive;
+            color: blue;
+        }
+        body{
+            background-color: rgb(144, 232, 128);
+        }
+      /* Alle Divs */
+      div {
+        padding: 8px;
+        margin: 5px;
+        border: 2px inset rgb(27, 20, 220);
+        box-shadow: 1px 1px 5px rgb(81, 0, 255);
+        border-radius: 5px;
+        background-color:rgba( 255, 255, 255, 0.2);
+        font-family: cursive;
+        color: blue;
+        text-shadow: 1px 1px 5px whitesmoke;
+      }
+      /* Kopfzeile mit 2 Spalten */
+      header {
+        /**** Der header ist das Mutterelement
+        und bekommt ein display grid damit die 
+        innenliegenden Kindelemente angepasst werden können 
+        und ihm werden mit grid-template-coloums 2 Spalten verpasst,
+        da wir 2 werte angegeben haben in diesem fall 50% und 50% 
+        von der breite des header****/
+
+        display: grid;
+        grid-template-columns: 50% 50%;
+      }
+      /* Das erste Element der Kopfzeile soll
+       * um eine Spalte verschoben werden */
+      header .erster {
+        background-color: cadetblue;
+        /**** mit grid-column-start: 2 sagen wir dem 
+        Kindelement dass es in seiner reihe von position 
+        2 starten soll, hierzu haben wir dem ersten element
+        im header Kontainer eine Klasse verpasst mit dem Namen .erster ****/
+
+        grid-column-start: 2;
+      }
+      /* Inhalt mit 3 Spalten */
+      main {
+           /**** Der main ist das Mutterelement
+        und bekommt ein display grid damit die 
+        innenliegenden Kindelemente angepasst werden können 
+        und ihm werden mit grid-template-coloums  Spalten verpasst,
+        da wir  werte angegeben haben in diesem fall 33% 33% und 33% 
+        von der breite des main****/
+
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+      }
+      /* Das zweite Element im Inhalt soll um zwei
+       * Spalten breit werden */
+      main .zweiter {
+        background-color: gold;
+         /**** mit grid-column-end:span 2 sagen wir dem
+         Kindelement dass es sich über 2 spalten strecken soll
+         hierzu haben wir dem zweiten element
+         im main Kontainer eine Klasse verpasst mit dem Namen .zweiter****/
+
+        grid-column-end: span 2;
+      }
+      /* Fußzeile mit 2 Spalten */
+      footer {
+         /**** Der footer ist das Mutterelement
+        und bekommt ein display grid damit die 
+        innenliegenden Kindelemente angepasst werden können 
+        und ihm werden mit grid-template-coloums 2 Spalten verpasst,
+        da wir 2 werte angegeben haben in diesem fall 50% und 50% 
+        von der breite des footer****/
+
+        display: grid;
+        grid-template-columns: 50% 50%;
+      }
+      /* Das dritte Element in der Fußzeile soll
+       * in die erste Zeile verschoben werden */
+      footer .dritter {
+        background-color: hotpink;
+
+        /**** mit grid-row-start sagen wir dem Kindelement
+        dass es in der ersten Zeile starten soll, hierzu haben wir dem dritten element
+         im main Kontainer eine Klasse verpasst mit dem Namen .dritter****/
+        grid-row-start: 1;
+
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Kopfzeile -->
+    <h1>Kopfzeile</h1>
+    <header>
+      <div class="erster">M-1</div>
+      <div>M-2</div>
+      <div>M-3</div>
+    </header>
+    <!-- Inhalt -->
+    <h1>Inhalt</h1>
+    <main>
+      <div>A</div>
+      <div class="zweiter">B</div>
+      <div>C</div>
+      <div>D</div>
+      <div>E</div>
+      <div>F</div>
+    </main>
+    <!-- Fußzeile -->
+    <h1>Fußzeile</h1>
+    <footer>
+      <div>F-1</div>
+      <div>F-2</div>
+      <div class="dritter">F-3</div>
+      <div>F-4</div>
+      <div>F-5</div>
+    </footer>
+  </body>
+</html>
